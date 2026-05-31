@@ -47,12 +47,11 @@
 //     );
 //   }
 //
-// TweakRadio is the segmented control for 2–3 short options (auto-falls-back to
-// TweakSelect past ~16/~10 chars per label); reach for TweakSelect directly when
-// options are many or long. For color tweaks always curate 3-4 options rather than
-// a free picker; an option can also be a whole 2–5 color palette (the stored value
-// is the array). The Tweak* controls are a floor, not a ceiling — build custom
-// controls inside the panel if a tweak calls for UI they don't cover.
+// TweakRadio = segmented control for 2–3 short options (falls back to TweakSelect
+// past ~16/~10 chars, or for many/long options). For colours, curate 3–4 options
+// rather than a free picker; an option can be a whole 2–5 colour palette (stored as
+// the array). The Tweak* controls are a floor, not a ceiling — roll your own inside
+// the panel when a tweak needs UI they don't cover.
 /* END USAGE */
 // ─────────────────────────────────────────────────────────────────────────────
 
