@@ -1,3 +1,5 @@
+<img width="1920" height="1080" alt="Screenshot 2026-05-31 at 22 46 14 (2)" src="https://github.com/user-attachments/assets/6cc9ef0f-dc2b-4256-bbe6-c5c45a6a0259" />
+
 # Little Days Out — the Map Builder
 
 A playful, hand-drawn map maker built into the *Little Days Out* hero. Rather than
