@@ -1,4 +1,4 @@
-// kids.jsx — Kids mode: mode toggle, mascot guide, surprise button, passport, confetti
+// kids.jsx: Kids mode: mode toggle, mascot guide, surprise button, passport, confetti
 
 /* ---------- Mode toggle (Grown-ups / Kids) ---------- */
 function ModeToggle({ mode, onChange }) {
@@ -65,7 +65,7 @@ function Passport({ activities, collected, total, onPick }) {
           const cat = window.LDA_DATA.CAT[a.cat];
           return (
             <button key={a.id} className={"stamp" + (got ? " stamp--got" : "")} style={{ "--pc": cat.color }}
-                    title={got ? a.fun : "Locked — go collect this!"} onClick={() => onPick(a.id)}>
+                    title={got ? a.fun : "Locked, go collect this!"} onClick={() => onPick(a.id)}>
               <span className="stamp__disc">
                 {got ? <Icon name={iconFor(a, cat)} size={18} stroke={2.2} /> : <Icon name="pin" size={15} stroke={2.2} />}
               </span>

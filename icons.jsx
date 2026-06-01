@@ -1,4 +1,4 @@
-// icons.jsx — clean line-icon set (Lucide-style, 24 box, round caps/joins)
+// icons.jsx: clean line-icon set (Lucide-style, 24 box, round caps/joins)
 // Consistent with the Homey design system's Lucide iconography.
 const { createElement: h } = React;
 
@@ -30,29 +30,29 @@ function iconFor(act, cat) {
 
 const ICON_PATHS = {
   /* ---------- category glyphs ---------- */
-  // Parks & play — clean evergreen (triangle silhouette reads at any size)
+  // Parks & play: clean evergreen (triangle silhouette reads at any size)
   trees: (<>
     <path d="M12 3 6.5 11h11L12 3Z" />
     <path d="M12 9.5 6 18h12L12 9.5Z" />
     <path d="M12 18v4" /><path d="M9.5 22h5" />
   </>),
-  // Soft play — three stacked toy blocks
+  // Soft play: three stacked toy blocks
   blocks: (<>
     <rect x="3" y="11.5" width="8.4" height="8.4" rx="1.4" />
     <rect x="12.6" y="11.5" width="8.4" height="8.4" rx="1.4" />
     <rect x="7.8" y="3.2" width="8.4" height="7" rx="1.4" />
   </>),
-  // Museums — columned landmark
+  // Museums: columned landmark
   landmark: (<>
     <path d="M3 22h18" /><path d="M6 18v-7" /><path d="M10 18v-7" /><path d="M14 18v-7" /><path d="M18 18v-7" />
     <path d="M4 11h16" /><path d="M12 2.5 3.8 7.4a.6.6 0 0 0 .3 1.1h15.8a.6.6 0 0 0 .3-1.1Z" />
   </>),
-  // Classes & clubs — beamed notes
+  // Classes & clubs: beamed notes
   music: (<>
     <path d="M9 18V5l12-2v13" />
     <circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
   </>),
-  // Events & fairs — proper ferris wheel
+  // Events & fairs: proper ferris wheel
   ferris: (<>
     <circle cx="12" cy="12" r="2" />
     <path d="M12 2v4" /><path d="m6.8 15-3.5 2" /><path d="m20.7 7-3.5 2" />
@@ -60,7 +60,7 @@ const ICON_PATHS = {
     <path d="m9 22 3-8 3 8" /><path d="M8 22h8" />
     <path d="M18 18.7a9 9 0 1 0-12 0" />
   </>),
-  // Farms & days out — tractor
+  // Farms & days out: tractor
   tractor: (<>
     <path d="M4 13V8a1 1 0 0 1 1-1h4.6a1 1 0 0 1 .9.55L12 11h4" />
     <path d="M13 7V4.4" />

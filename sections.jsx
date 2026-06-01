@@ -1,4 +1,4 @@
-// sections.jsx — logo, nav, and below-the-fold sections
+// sections.jsx: logo, nav, and below-the-fold sections
 
 const { CATEGORIES: _CATS, CAT: _CAT, ACTIVITIES: _ACTS, STEPS: _STEPS, PARENTS: _PARENTS } = window.LDA_DATA;
 
@@ -129,7 +129,7 @@ function Categories() {
         <header className="sechead sechead--center">
           <span className="lda-eyebrow" style={{ color: "var(--grape)" }}>Something for every mood</span>
           <h2>Whatever the day throws at you</h2>
-          <p className="sechead__sub">Sunny morning, soggy afternoon, fizzing-with-energy toddler — there’s a filter for that.</p>
+          <p className="sechead__sub">Sunny morning, soggy afternoon, fizzing-with-energy toddler: there’s a filter for that.</p>
         </header>
         <div className="cattiles">
           {tiles.map((c) => (
@@ -185,7 +185,7 @@ function Waitlist() {
           <span style={{ background: "var(--berry)" }}></span>
         </div>
         <h2>Your next little day out is waiting</h2>
-        <p>Join the early list and we’ll let you know the moment Little Days Out lands in your town. No spam — just good days.</p>
+        <p>Join the early list and we’ll let you know the moment Little Days Out lands in your town. No spam, just good days.</p>
         {sent ? (
           <div className="cta__done"><Icon name="check" size={20} stroke={3} /> You’re on the list. Talk soon.</div>
         ) : (

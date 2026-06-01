@@ -1,4 +1,4 @@
-// data.jsx — content for Little Days Out
+// data.jsx: content for Little Days Out
 
 const CATEGORIES = [
   { id: "all",      label: "All",              icon: "sparkles", color: "var(--coral)", soft: "var(--coral-soft)" },
@@ -41,7 +41,7 @@ const ACTIVITIES = [
   { id: "fair", name: "Riverside Spring Fair", cat: "events", icon: "ferris", x: 50, y: 73, rating: 4.5, reviews: 64,
     price: "Free entry", distance: "0.9 mi", age: "All ages", hours: "Sat–Sun, this weekend",
     where: "The Meadows bandstand",
-    blurb: "A weekend of carousel rides, a petting corner, street food and a brass band. Bring wellies if it's been raining — the field gets soft.",
+    blurb: "A weekend of carousel rides, a petting corner, street food and a brass band. Bring wellies if it's been raining, the field gets soft.",
     tags: ["This weekend", "Outdoor", "Food stalls"], kid: "Ride the carousel and meet the animals!", fun: "Carousel rider" },
 
   { id: "hollow", name: "Honeydew Farm Park", cat: "farms", icon: "tractor", x: 67, y: 35, rating: 4.8, reviews: 271,
@@ -71,7 +71,7 @@ const ACTIVITIES = [
   { id: "makers", name: "Mini Makers Craft Club", cat: "classes", icon: "palette", x: 82, y: 48, rating: 4.8, reviews: 74,
     price: "£9 / session", distance: "1.1 mi", age: "3 – 9 yrs", hours: "Wed & Sat",
     where: "The Yard, Carver Street",
-    blurb: "Get gloriously messy with clay, paint and glitter. Aprons provided, mess stays at theirs — you go home with a masterpiece and clean hands.",
+    blurb: "Get gloriously messy with clay, paint and glitter. Aprons provided, mess stays at theirs, and you go home with a masterpiece and clean hands.",
     tags: ["Indoor", "Messy play", "Booking needed"], kid: "Get messy with paint, clay and glitter!", fun: "Master maker" },
 
   { id: "aquarium", name: "Blue Reef Aquarium", cat: "museums", icon: "fish", x: 84, y: 72, rating: 4.7, reviews: 388,
@@ -83,7 +83,7 @@ const ACTIVITIES = [
   { id: "splashpark", name: "Sunnyfields Splash Park", cat: "parks", icon: "droplets", x: 90, y: 88, rating: 4.7, reviews: 156,
     price: "Free", distance: "1.0 mi", age: "All ages", hours: "10:00 – 18:00, summer",
     where: "Sunnyfields Recreation Ground",
-    blurb: "Jets, fountains and tipping buckets on a soft splash pad — bring towels and a change of clothes, because they will get soaked. Free all summer.",
+    blurb: "Jets, fountains and tipping buckets on a soft splash pad, so bring towels and a change of clothes, because they will get soaked. Free all summer.",
     tags: ["Free", "Outdoor", "Summer"], kid: "Run through the fountains and get soaked!", fun: "Splash dasher" },
 
   { id: "treehouse", name: "The Treehouse Café Play", cat: "softplay", icon: "trees", x: 90, y: 22, rating: 4.5, reviews: 91,
@@ -96,12 +96,12 @@ const ACTIVITIES = [
 const STEPS = [
   { icon: "navigation", color: "var(--leaf)", soft: "var(--leaf-soft)", title: "Tell us where you are", body: "Pop in your postcode or tap “near me”. We’ll find the good stuff within pram-pushing or short-drive distance." },
   { icon: "filter", color: "var(--sky)", soft: "var(--sky-soft)", title: "Filter by age & mood", body: "Rainy day? Toddler in tow? Two hours to fill? Narrow it down by age, weather, price and how far you fancy going." },
-  { icon: "heart", color: "var(--coral)", soft: "var(--coral-soft)", title: "Save it & go", body: "Build a little plan, save your favourites and check opening times — then get out the door and make a day of it." },
+  { icon: "heart", color: "var(--coral)", soft: "var(--coral-soft)", title: "Save it & go", body: "Build a little plan, save your favourites and check opening times, then get out the door and make a day of it." },
 ];
 
 const PARENTS = [
   { name: "Sophie R.", meta: "Mum of 2 · Leeds", quote: "Saturdays used to be a panic of “what do we even do today?”. Now I check the map over breakfast and we’ve got a plan before the toast’s cold.", color: "var(--berry)" },
-  { name: "Marcus T.", meta: "Dad of 2 · Bristol", quote: "Honestly a lifesaver on my weekends with the girls. The free-things filter alone has saved me a small fortune — and they have a brilliant time.", color: "var(--sky)" },
+  { name: "Marcus T.", meta: "Dad of 2 · Bristol", quote: "Honestly a lifesaver on my weekends with the girls. The free-things filter alone has saved me a small fortune, and they have a brilliant time.", color: "var(--sky)" },
   { name: "Priya & Dev", meta: "Parents of 3 · Reading", quote: "We found a farm park ten minutes away that we’d never heard of. The age filter means no more turning up to something the baby’s too little for.", color: "var(--leaf)" },
 ];
 

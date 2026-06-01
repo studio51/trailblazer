@@ -1,4 +1,4 @@
-// maplayout.jsx — map data model, default layout (the hand-drawn map as data), persistence.
+// maplayout.jsx: map data model, default layout (the hand-drawn map as data), persistence.
 //
 // COORDINATE SYSTEM: everything lives in the SVG user space 0..1600 (x) by 0..1000 (y).
 // Activity pins keep their own x/y as PERCENT (authored in data.jsx); the editor writes
@@ -49,14 +49,14 @@ function _defaultFlowers() {
 function defaultLayout() {
   return {
     v: 3,
-    // filled blobs — water bodies (and optionally grass patches)
+    // filled blobs: water bodies (and optionally grass patches)
     areas: [
       { id: uid("water"), kind: "water",
         pts: [[-60, 740], [180, 678], [372, 690], [520, 760], [546, 880], [430, 982], [150, 1010], [-60, 980]] },
       { id: uid("water"), kind: "water",
         pts: [[1212, 250], [1290, 176], [1392, 182], [1452, 252], [1392, 322], [1288, 322]] },
     ],
-    // polylines — roads (tan) and rivers (blue)
+    // polylines: roads (tan) and rivers (blue)
     paths: [
       { id: uid("road"), kind: "road", w: 46,
         pts: [[-60, 420], [262, 360], [462, 470], [702, 540], [902, 504], [1122, 500], [1302, 566], [1660, 600]] },
@@ -112,7 +112,7 @@ function defaultLayout() {
       { id: uid("sgn"), kind: "signpost", x: 772, y: 540, s: 1, flip: false },
       { id: uid("brg"), kind: "bridge", x: 1185, y: 523, rot: 20, len: 100, style: "wood" },
       { id: uid("brg"), kind: "bridge", x: 966, y: 259, rot: -32, len: 86, style: "wood" },
-      // terrain — hills & a little mountain range (drawn behind via y-sort)
+      // terrain: hills & a little mountain range (drawn behind via y-sort)
       { id: uid("mtn"), kind: "mountain", x: 215, y: 252, s: 1.35 },
       { id: uid("mtn"), kind: "mountain", x: 392, y: 214, s: 0.95 },
       { id: uid("hill"), kind: "hill", x: 1024, y: 360, s: 1.05 },
@@ -139,7 +139,7 @@ function defaultLayout() {
    Builds a complete, playable map from scratch: a lake, a winding river,
    a few crossing roads (auto-bridges appear where they meet water), then
    scatters terrain, foliage, buildings, play areas, a fair, a train and a
-   little camp — all kept clear of water and roads. Deterministic for a given
+   little camp, all kept clear of water and roads. Deterministic for a given
    seed; pass nothing for a fresh random map. */
 const _PLACE_NAMES = ["Willow Lake", "The Meadows", "Oak Common", "Bluebell Wood",
   "Riverside", "Sunny Field", "Hilltop", "Fox Hollow", "Cedar Park", "Mill Pond"];
@@ -358,7 +358,7 @@ function generateAndSave(seed) {
   return layout;
 }
 
-/* a completely blank canvas — no roads, water, foliage or props.
+/* a completely blank canvas: no roads, water, foliage or props.
    pins stay empty so activity markers fall back to their authored positions. */
 function emptyLayout() {
   return { v: 3, areas: [], paths: [], items: [], pins: {} };

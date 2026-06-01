@@ -1,4 +1,4 @@
-// app.jsx — hero composition (pan/zoom + parents/kids modes) + App shell + Tweaks
+// app.jsx: hero composition (pan/zoom + parents/kids modes) + App shell + Tweaks
 
 const { MapScene } = window.LDA_SCENE;
 const { MapEditor } = window.LDA_EDITOR;
@@ -190,7 +190,7 @@ function HeroSection({ headline, subhead, pinStyle, mode, setMode, layout, setLa
           <>
             <span className="hero__eyebrow hero__eyebrow--kids"><span className="dot" /> Let’s find an adventure</span>
             <h1 className="hero__title">Where shall we go today?</h1>
-            <p className="hero__sub">Tap a pin to explore, collect a stamp for every place you visit — or hit <b>Surprise me</b> and we’ll pick something fun!</p>
+            <p className="hero__sub">Tap a pin to explore, collect a stamp for every place you visit, or hit <b>Surprise me</b> and we’ll pick something fun!</p>
             <div className="kidsActions">
               <SurpriseButton onSurprise={surprise} spinning={spinning} />
               <span className="kidsHint"><Icon name="navigation" size={15} stroke={2.4} /> Drag the map to look around</span>
@@ -237,7 +237,7 @@ function HeroSection({ headline, subhead, pinStyle, mode, setMode, layout, setLa
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accent": "#FF6A45",
   "headline": "Find brilliant days out, near you",
-  "subhead": "A friendly map of everything worth doing with the kids today — parks, soft play, museums, farms and free family fun, all just down the road.",
+  "subhead": "A friendly map of everything worth doing with the kids today: parks, soft play, museums, farms and free family fun, all just down the road.",
   "pinStyle": "badge",
   "startMode": "parents",
   "secHow": true,

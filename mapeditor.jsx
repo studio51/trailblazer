@@ -1,4 +1,4 @@
-// mapeditor.jsx — in-place map builder overlaid on the hero.
+// mapeditor.jsx: in-place map builder overlaid on the hero.
 // Edits the same layout the hero renders. Tools: select/reshape, draw roads & rivers,
 // draw water, stamp trees/bushes/houses/benches/rocks/flowers/labels, move pins, delete.
 
@@ -405,7 +405,7 @@ function MapEditor({ layout, setLayout, activities, cats, onClose }) {
       const oel = oarr.find((x) => x.id === sel.id);
       el.pts = oel.pts.map((pt, i) => i === d.idx ? [snapV(pt[0] + dx), snapV(pt[1] + dy)] : pt);
     }
-    setLayout(next); // NOTE: (VR) live update only — history is recorded once on pointer-up
+    setLayout(next); // NOTE: (VR) live update only; history is recorded once on pointer-up
   };
 
   const onCanvasUp = (e) => {
@@ -495,7 +495,7 @@ function MapEditor({ layout, setLayout, activities, cats, onClose }) {
         </div>
       </div>
 
-      {/* toolbar — nested drill-down */}
+      {/* toolbar: nested drill-down */}
       <div className="maped__tools">
         <div className="maped__quickrow">
           {QUICK.map((tl) => (
@@ -566,7 +566,7 @@ function hintFor(tool, draft) {
     case "traffic": return "Click to lay the road route · double-click or Enter to finish";
     case "dirt":   return "Click to wind the dirt track point by point";
     case "river":  return "Click to wind the river point by point";
-    case "water":  return "Click around the edge of a lake or pond — it fills automatically";
+    case "water":  return "Click around the edge of a lake or pond, it fills automatically";
     default:       return "Click empty grass to place · click an existing element to select it";
   }
 }
@@ -623,7 +623,7 @@ function EditorOverlay({ layout, sel, draft, tool, hr, showGrid, activities, cat
         return (
           <g>
             <path d={SCENE.smoothPath(el.pts, sel.type === "area")} fill="none" className="maped__seloutline" />
-            {/* "+" handles — click to add a point */}
+            {/* "+" handles: click to add a point */}
             {ghosts.map((g, i) => (
               <g key={"g" + i} data-ins={g.ins} className="maped__add" transform={`translate(${g.x} ${g.y})`}>
                 <circle data-ins={g.ins} r={hr * 0.92} className="maped__adddot" />

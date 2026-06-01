@@ -1,4 +1,4 @@
-// mapscene.jsx — pure, data-driven renderer for the map layout.
+// mapscene.jsx: pure, data-driven renderer for the map layout.
 // Renders areas (water), paths (roads/rivers) and items (trees, houses, benches,
 // bushes, rocks, flowers, labels) from a layout object into one SVG. No editing here.
 
@@ -380,7 +380,7 @@ function ScenePicnic() {
   );
 }
 function SceneDuck() {
-  // NOTE: (VR) faces left and floats — light ripple stands in for the ground shadow
+  // NOTE: (VR) faces left and floats; light ripple stands in for the ground shadow
   return (
     <g>
       <ellipse cx="0" cy="1" rx="13" ry="3" fill="rgba(255,255,255,0.4)" />
@@ -653,9 +653,9 @@ function RoadBridge({ pts, core, w, style }) {
   }
   return (
     <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-      {/* elevation shadow — water core only */}
+      {/* elevation shadow, water core only */}
       <path d={cd} stroke="rgba(16,44,58,0.26)" strokeWidth={w + rail * 2 + 4} transform="translate(0,5)" />
-      {/* parapet band (rail on each side of the deck) — water core only */}
+      {/* parapet band (rail on each side of the deck), water core only */}
       <path d={cd} stroke={wood} strokeWidth={w + rail * 2} />
       {/* the deck = the road itself, full span, so both ends merge into the road */}
       <path d={d} stroke="#E8D9BC" strokeWidth={w + 6} />
@@ -815,7 +815,7 @@ function SceneRoundabout() {
   );
 }
 function SceneSwan() {
-  // NOTE: (VR) floats facing left — ripple stands in for the ground shadow
+  // NOTE: (VR) floats facing left; ripple stands in for the ground shadow
   return (
     <g>
       <ellipse cx="0" cy="1" rx="16" ry="3" fill="rgba(255,255,255,0.4)" />

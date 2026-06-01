@@ -1,5 +1,5 @@
 /* ============================================================
-   Little Days Out — Design System
+   Little Days Out: Design System
    "Sunny picture-book": warm paper, chunky rounded shapes, a
    confident coral, and a cast of joyful category colours.
    Display = Fredoka (rounded, friendly). Body = Mulish (clean humanist).
@@ -9,10 +9,10 @@
 
 :root {
   /* ---- Surfaces / ink ---- */
-  --paper:      #FFFBF3;   /* page background — warm cream */
+  --paper:      #FFFBF3;   /* page background, warm cream */
   --cream:      #FFF3E0;   /* subtle warm surface / bands */
   --surface:    #FFFFFF;   /* cards */
-  --ink:        #241D17;   /* headings — warm near-black */
+  --ink:        #241D17;   /* headings, warm near-black */
   --ink-soft:   #5C5249;   /* body */
   --ink-mute:   #8E8278;   /* captions / helper */
   --line:       #EFE4D3;   /* warm hairline border */

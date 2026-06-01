@@ -1,4 +1,4 @@
-// hero.jsx — illustrated park map: rich SVG art, glossy pins, zoom control, detail card
+// hero.jsx: illustrated park map with rich SVG art, glossy pins, zoom control, detail card
 
 const { useState, useMemo, useRef, useEffect } = React;
 
@@ -246,7 +246,7 @@ function DetailCard({ act, cat, kids, collected, onPrev, onNext, onGo }) {
 
         {kids ? (
           <button className={"btn btn--block btn--kidgo" + (collected ? " is-collected" : "")} style={{ background: cat.color }} onClick={onGo}>
-            {collected ? (<><Icon name="check" size={18} stroke={3} /> Stamp collected!</>) : (<><Icon name="sparkles" size={17} stroke={2.4} /> Let’s go here — collect a stamp!</>)}
+            {collected ? (<><Icon name="check" size={18} stroke={3} /> Stamp collected!</>) : (<><Icon name="sparkles" size={17} stroke={2.4} /> Let’s go here: collect a stamp!</>)}
           </button>
         ) : (
           <button className="btn btn--block" style={{ background: cat.color }}>

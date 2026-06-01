@@ -1,6 +1,6 @@
 /* BEGIN USAGE */
 /**
- * <image-slot> — user-fillable image placeholder.
+ * <image-slot>: user-fillable image placeholder.
  *
  * Drop into a deck, mockup, or page where the user should supply an image.
  * You set the slot's shape and size; the user fills it by dragging a file on
@@ -14,14 +14,14 @@
  * (same constraint as design_canvas.jsx).
  *
  * Attributes:
- *   id           Persistence key. REQUIRED for the drop to survive reload —
+ *   id           Persistence key. REQUIRED for the drop to survive reload;
  *                every slot on the page needs a distinct id.
  *   shape        'rect' | 'rounded' | 'circle' | 'pill'   (default 'rounded')
  *                'circle' applies 50% border-radius; on a non-square slot
- *                that's an ellipse — set equal width and height for a true
+ *                that's an ellipse; set equal width and height for a true
  *                circle.
  *   radius       Corner radius in px for 'rounded'.       (default 12)
- *   mask         Any CSS clip-path value. Overrides `shape` — use this for
+ *   mask         Any CSS clip-path value. Overrides `shape`; use this for
  *                hexagons, blobs, arbitrary polygons.
  *   fit          object-fit: cover | contain | fill.       (default 'cover')
  *                With cover (the default) double-clicking the filled slot
@@ -34,8 +34,8 @@
  *   src          Optional initial/fallback image URL. A user drop overrides
  *                it; clearing the drop reveals src again.
  *
- * Size and layout come from ordinary CSS on the element — width/height
- * inline or from a parent grid — so it composes with any layout.
+ * Size and layout come from ordinary CSS on the element (width/height
+ * inline or from a parent grid), so it composes with any layout.
  *
  * Usage:
  *   <image-slot id="hero"   style="width:800px;height:450px" shape="rounded" radius="20"
@@ -48,9 +48,9 @@
 
 (() => {
   const STATE_FILE = '.image-slots.state.json';
-  // NOTE: (VR) cap the longest side — retina-sharp without a huge sidecar (1200px WebP q0.85 ≈ 150–300KB)
+  // NOTE: (VR) cap the longest side: retina-sharp without a huge sidecar (1200px WebP q0.85 ≈ 150–300KB)
   const MAX_DIM = 1200;
-  // NOTE: (VR) raster only — SVG can carry script, GIF would lose all but the first frame on re-encode
+  // NOTE: (VR) raster only: SVG can carry script, GIF would lose all but the first frame on re-encode
   const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif'];
 
   // ── Shared sidecar store ────────────────────────────────────────────────
@@ -72,7 +72,7 @@
         // NOTE: (VR) on merge the sidecar loses to any in-memory change that raced the fetch, so a drop/clear isn't clobbered by hydration
         if (j && typeof j === 'object') {
           const merged = Object.assign({}, j, slots);
-          // NOTE: (VR) a framing-only write mustn't drop an image that's only on disk — inherit u from the sidecar where missing
+          // NOTE: (VR) a framing-only write mustn't drop an image that's only on disk, so inherit u from the sidecar where missing
           for (const k in slots) {
             if (merged[k] && !merged[k].u && j[k]) {
               merged[k].u = typeof j[k] === 'string' ? j[k] : j[k].u;
@@ -257,7 +257,7 @@
         if (f) this._ingest(f);
         this._input.value = '';
       });
-      // NOTE: (VR) re-apply on load — naturalWidth/Height are unknown until then, so the cover baseline needs real dimensions
+      // NOTE: (VR) re-apply on load: naturalWidth/Height are unknown until then, so the cover baseline needs real dimensions
       this._img.addEventListener('load', () => this._applyView());
       // NOTE: (VR) gated on editable + fit=cover so share links and contain/fill slots stay static
       this.addEventListener('dblclick', (e) => {
@@ -266,7 +266,7 @@
         if (this.hasAttribute('data-reframe')) this._exitReframe(true);
         else this._enterReframe();
       });
-      // NOTE: (VR) pan + resize both start on the spill layer — a handle pointerdown does an aspect-locked resize from the opposite corner, any other pointerdown pans. Offsets are frame-% so it survives resize / PPTX export.
+      // NOTE: (VR) pan + resize both start on the spill layer: a handle pointerdown does an aspect-locked resize from the opposite corner, any other pointerdown pans. Offsets are frame-% so it survives resize / PPTX export.
       this._spill.addEventListener('pointerdown', (e) => {
         if (e.button !== 0 || !this.hasAttribute('data-reframe')) return;
         e.preventDefault();
@@ -344,7 +344,7 @@
     }
 
     connectedCallback() {
-      // NOTE: (VR) warn once per page — an id-less slot works for the session but can't persist
+      // NOTE: (VR) warn once per page: an id-less slot works for the session but can't persist
       if (!this.id && !ImageSlot._warned) {
         ImageSlot._warned = true;
         console.warn('<image-slot> without an id will not persist its dropped image.');
@@ -354,7 +354,7 @@
       this.addEventListener('dragleave', this);
       this.addEventListener('drop', this);
       subs.add(this._subFn);
-      // NOTE: (VR) re-render on size change — _applyView bakes in the frame aspect, and re-seeding _view from stored before clamp lets a shrink→grow cycle round-trip instead of ratcheting x/y inward
+      // NOTE: (VR) re-render on size change: _applyView bakes in the frame aspect, and re-seeding _view from stored before clamp lets a shrink→grow cycle round-trip instead of ratcheting x/y inward
       this._ro = new ResizeObserver(() => this._render());
       this._ro.observe(this);
       load();
@@ -398,7 +398,7 @@
 
     attributeChangedCallback() { if (this.shadowRoot) this._render(); }
 
-    // handleEvent — one listener object for all four drag events keeps the
+    // handleEvent: one listener object for all four drag events keeps the
     // add/remove symmetric and the depth counter correct.
     handleEvent(e) {
       if (e.type === 'dragenter' || e.type === 'dragover') {
@@ -409,7 +409,7 @@
         if (e.type === 'dragenter') this._depth++;
         this.setAttribute('data-over', '');
       } else if (e.type === 'dragleave') {
-        // NOTE: (VR) count depth — dragenter/leave fire for every descendant, so hovering the inner icon doesn't flicker the over-state
+        // NOTE: (VR) count depth: dragenter/leave fire for every descendant, so hovering the inner icon doesn't flicker the over-state
         if (--this._depth <= 0) { this._depth = 0; this.removeAttribute('data-over'); }
       } else if (e.type === 'drop') {
         e.preventDefault();
@@ -427,7 +427,7 @@
         this._setError('Drop a PNG, JPEG, WebP, or AVIF image.');
         return;
       }
-      // NOTE: (VR) toDataUrl can take hundreds of ms — capture a generation so a Clear or newer drop during that window makes this stale encode bail
+      // NOTE: (VR) toDataUrl can take hundreds of ms, so capture a generation so a Clear or newer drop during that window makes this stale encode bail
       const gen = ++this._gen;
       try {
         const w = this.clientWidth || this.offsetWidth || MAX_DIM;
@@ -456,7 +456,7 @@
       setTimeout(() => { if (this._err === d) { d.remove(); this._err = null; } }, 3000);
     }
 
-    // Reframing (pan/resize) is only meaningful for fit=cover — contain/fill
+    // Reframing (pan/resize) is only meaningful for fit=cover; contain/fill
     // keep the old object-fit path and double-click is a no-op.
     _reframes() {
       return this.hasAttribute('data-filled') &&
@@ -464,7 +464,7 @@
     }
 
     // Cover-baseline geometry shared by clamp/apply/resize. Null until the img
-    // has loaded (naturalWidth 0 before that) or the slot has no layout box —
+    // has loaded (naturalWidth 0 before that) or the slot has no layout box;
     // clamping against a 0×0 / 1×1 frame would silently pull the stored pan to zero.
     _geom() {
       const iw = this._img.naturalWidth, ih = this._img.naturalHeight;
@@ -496,7 +496,7 @@
         this._img.style.objectPosition = this.getAttribute('position') || '50% 50%';
         return;
       }
-      // NOTE: (VR) cover baseline — img fills the frame's tighter axis at s=1 so pan works without zooming first. Box is all frame-% (depends only on aspect) so a resize keeps the crop; the spill mirrors it so its corners = image corners.
+      // NOTE: (VR) cover baseline: img fills the frame's tighter axis at s=1 so pan works without zooming first. Box is all frame-% (depends only on aspect) so a resize keeps the crop; the spill mirrors it so its corners = image corners.
       const k = g.base * this._view.s;
       const w = (g.iw * k / g.fw * 100) + '%';
       const h = (g.ih * k / g.fh * 100) + '%';
@@ -553,7 +553,7 @@
         };
       }
       this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
-      // NOTE: (VR) toggle via style.display — [hidden] alone loses to the display:flex/block rules above
+      // NOTE: (VR) toggle via style.display: [hidden] alone loses to the display:flex/block rules above
       if (url) {
         if (this._img.getAttribute('src') !== url) {
           this._img.src = url;

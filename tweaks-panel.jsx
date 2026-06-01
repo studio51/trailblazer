@@ -50,7 +50,7 @@
 // TweakRadio = segmented control for 2–3 short options (falls back to TweakSelect
 // past ~16/~10 chars, or for many/long options). For colours, curate 3–4 options
 // rather than a free picker; an option can be a whole 2–5 colour palette (stored as
-// the array). The Tweak* controls are a floor, not a ceiling — roll your own inside
+// the array). The Tweak* controls are a floor, not a ceiling; roll your own inside
 // the panel when a tweak needs UI they don't cover.
 /* END USAGE */
 // ─────────────────────────────────────────────────────────────────────────────
@@ -177,7 +177,7 @@ function useTweaks(defaults) {
       ? keyOrEdits : { [keyOrEdits]: val };
     setValues((prev) => ({ ...prev, ...edits }));
     window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-    // NOTE: (VR) same-window signal for in-page listeners — the parent message only reaches the host, not peers
+    // NOTE: (VR) same-window signal for in-page listeners: the parent message only reaches the host, not peers
     window.dispatchEvent(new CustomEvent('tweakchange', { detail: edits }));
   }, []);
   return [values, setTweak];
@@ -330,13 +330,13 @@ function TweakRadio({ label, value, options, onChange }) {
   const valueRef = React.useRef(value);
   valueRef.current = value;
 
-  // NOTE: (VR) segments wrap once labels outrun the ~248px track — 2 options fit ~16 chars,
+  // NOTE: (VR) segments wrap once labels outrun the ~248px track: 2 options fit ~16 chars,
   // 3 fit ~10. Past that (or >3 options) fall back to a dropdown instead of wrapping.
   const labelLen = (o) => String(typeof o === 'object' ? o.label : o).length;
   const maxLen = options.reduce((m, o) => Math.max(m, labelLen(o)), 0);
   const fitsAsSegments = maxLen <= ({ 2: 16, 3: 10 }[options.length] ?? 0);
   if (!fitsAsSegments) {
-    // NOTE: (VR) <select> emits strings — map back to the original option so the fallback stays type-preserving (numbers, booleans)
+    // NOTE: (VR) <select> emits strings, so map back to the original option so the fallback stays type-preserving (numbers, booleans)
     const resolve = (s) => {
       const m = options.find((o) => String(typeof o === 'object' ? o.value : o) === s);
       return m === undefined ? s : typeof m === 'object' ? m.value : m;
@@ -466,7 +466,7 @@ const __TwkCheck = ({ light }) => (
   </svg>
 );
 
-// TweakColor — curated colour/palette picker. An option is a hex string or an
+// TweakColor: curated colour/palette picker. An option is a hex string or an
 // array of 1–5 hex strings; a lone colour renders solid, a palette renders
 // colors[0] as the hero with the rest stacked on the right. onChange emits the
 // option in the shape it came in. No options → native colour input.
